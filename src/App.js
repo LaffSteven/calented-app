@@ -1,6 +1,5 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
-import { response } from 'express';
 
 
 
@@ -23,11 +22,12 @@ function App() {
   const handleUpdate = (updatedCalEvent) => {
     axios.put('https://calented-server.herokuapp.com/api/calevents/' + updatedCalEvent.id, updatedCalEvent)
       .then((response) => {
-        setCalEventList(calEventList.map(calEvent) => {
+        setCalEventList(calEventList.map((calEvent) => {
           return calEvent.id !== response.data.id ? calEvent : response.data
-        })
+        }))
       })
   }
+
   const handleDelete = (deletedCalEvent) => {
     axios.delete('https://calented-server.herokuapp.com/api/calevents/' + deletedCalEvent.id)
       .then((response) => {
