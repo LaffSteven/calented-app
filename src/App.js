@@ -1,11 +1,12 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 
-import './Bulma.css'
+// IMPORT BULMA CSS ////////////////////////////////////////////////
+import './Bulma.css' // https://bulma.io/
 
 ////////////////////////////////////////////////////////////////////
 ////  IMPORT COMPONENTS                      IMPORT COMPONENTS  ////
-
+import CalEventList from './components/CalEventList';
 
 
 function App() {
@@ -48,22 +49,22 @@ function App() {
 
   useEffect(() => {
     getCalEventList();
-  })
+  }, [])
 
   return (
     <>
-      <h1>Calented</h1>
-      <ul>
-        {calEventList.map((calEvent) => {
-          return <li>{calEvent.title}: </li>
-        })}
-      </ul>
-      <section class="section">
-        <div class="container">
-          <h1 class="title">
+      <h1 className="title">Calented</h1>
+      <CalEventList calEventList={calEventList} handleUpdateCalEvent={handleUpdateCalEvent} handleDeleteCalEvent={handleDeleteCalEvent}/>
+
+
+
+      
+      <section className="section">
+        <div className="container">
+          <h1 className="title">
             Hello World
           </h1>
-          <p class="subtitle">
+          <p className="subtitle">
             My first website with <strong>Bulma</strong>!
           </p>
         </div>
