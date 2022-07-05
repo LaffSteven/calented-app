@@ -19,7 +19,7 @@ const NewCalEventForm = (props) => {
 		event.preventDefault()
 		// console.log(newCalEvent);
 		props.handleCreateCalEvent(newCalEvent)
-		// setNewCalEvent(emptyCalEvent)
+		setNewCalEvent(emptyCalEvent)
 	}
 
 	return (
