@@ -16,8 +16,9 @@ function App() {
 ////////////////////////////////////////////////////////////////////
 ////  STATE                                              STATE  ////
   const [calEventList, setCalEventList] = useState([]);
-  const [selectedDate, setSelectedDate] = useState(Date.now())
-  const [todaysDate, setTodaysDate] = useState("")
+  const [todayDate, setTodayDate] = useState("")
+  const [selectedDate, setSelectedDate] = useState("")
+
 ////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////
@@ -52,27 +53,21 @@ function App() {
 
   useEffect(() => {
     getCalEventList();
-    setTodaysDate(moment().format('YYYY-MM-DD'))
+    setTodayDate(moment().format('YYYY-MM-DD'));
+    setSelectedDate(moment().format('YYYY-MM-DD'));
   }, [])
 
   return (
     <div className="columns is-gapless">
+      <div className="column box">
+        <h2 className="title">Calented</h2>
+        <h2>Today is: {todayDate}</h2>
+      </div>
       <div className="column">
-        <CalEventList calEventList={calEventList} handleUpdateCalEvent={handleUpdateCalEvent} handleDeleteCalEvent={handleDeleteCalEvent}/>
+        <CalEventList selectedDate={selectedDate} calEventList={calEventList} handleUpdateCalEvent={handleUpdateCalEvent} handleDeleteCalEvent={handleDeleteCalEvent}/>
       </div>
 
-      <div className="column">
-        <section className="section">
-          <div className="container">
-            <h1 className="title is-one-quarter">
-              Hello World
-            </h1>
-            <p className="subtitle">
-              My first website with <strong>Bulma</strong>!
-            </p>
-          </div>
-        </section>
-      </div>
+      <div className="column"></div>
 
       <div className="column"></div>
     </div>

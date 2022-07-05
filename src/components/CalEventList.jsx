@@ -8,6 +8,7 @@ const CalEventList = (props) => {
 
 	return (
 		<ul className="box">
+			<h3 className='subtitle'>Today's Events</h3>
 			{console.log(Date())}
 			{props.calEventList.map((calEvent) => {
 				return (
