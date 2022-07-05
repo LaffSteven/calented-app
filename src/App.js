@@ -9,6 +9,7 @@ import './Bulma.css' // https://bulma.io/
 ////////////////////////////////////////////////////////////////////
 ////  IMPORT COMPONENTS                      IMPORT COMPONENTS  ////
 import CalEventList from './components/CalEventList';
+import NewCalEventForm from './components/NewCalEventForm';
 
 
 function App() {
@@ -18,7 +19,6 @@ function App() {
   const [calEventList, setCalEventList] = useState([]);
   const [todayDate, setTodayDate] = useState("")
   const [selectedDate, setSelectedDate] = useState("")
-
 ////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////
@@ -30,6 +30,7 @@ function App() {
       })
   }
   const handleCreateCalEvent = (newCalEvent) => {
+    console.log(newCalEvent);
     axios.post('https://calented-server.herokuapp.com/api/calevents', newCalEvent)
       .then((response) => {
         setCalEventList([...calEventList, response.data])
@@ -62,14 +63,14 @@ function App() {
       <div className="column box">
         <h2 className="title">Calented</h2>
         <h2>Today is: {todayDate}</h2>
+        <div className='box'>
+          <NewCalEventForm handleCreateCalEvent={handleCreateCalEvent} todayDate={todayDate}/>
+        </div>
+        
       </div>
       <div className="column">
         <CalEventList selectedDate={selectedDate} calEventList={calEventList} handleUpdateCalEvent={handleUpdateCalEvent} handleDeleteCalEvent={handleDeleteCalEvent}/>
       </div>
-
-      <div className="column"></div>
-
-      <div className="column"></div>
     </div>
   );
 }
