@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 
+import './Bulma.css'
 
 ////////////////////////////////////////////////////////////////////
 ////  IMPORT COMPONENTS                      IMPORT COMPONENTS  ////
@@ -50,14 +51,24 @@ function App() {
   })
 
   return (
-    <div className="App">
+    <>
       <h1>Calented</h1>
       <ul>
         {calEventList.map((calEvent) => {
           return <li>{calEvent.title}: </li>
         })}
       </ul>
-    </div>
+      <section class="section">
+        <div class="container">
+          <h1 class="title">
+            Hello World
+          </h1>
+          <p class="subtitle">
+            My first website with <strong>Bulma</strong>!
+          </p>
+        </div>
+      </section>
+    </>
   );
 }
 
