@@ -1,6 +1,8 @@
 const CalEvent = (props) => {
 	return (
-		<div></div>
+		<div className="box">
+			<p>{props.calEvent.title}</p>
+		</div>
 	)
 }
 

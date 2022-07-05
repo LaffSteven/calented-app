@@ -1,5 +1,7 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
+import moment from 'moment';
+import Moment from 'react-moment';
 
 // IMPORT BULMA CSS ////////////////////////////////////////////////
 import './Bulma.css' // https://bulma.io/
@@ -14,6 +16,8 @@ function App() {
 ////////////////////////////////////////////////////////////////////
 ////  STATE                                              STATE  ////
   const [calEventList, setCalEventList] = useState([]);
+  const [selectedDate, setSelectedDate] = useState(Date.now())
+  const [todaysDate, setTodaysDate] = useState("")
 ////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////
@@ -38,7 +42,6 @@ function App() {
         }))
       })
   }
-
   const handleDeleteCalEvent = (deletedCalEvent) => {
     axios.delete('https://calented-server.herokuapp.com/api/calevents/' + deletedCalEvent.id)
       .then((response) => {
@@ -49,19 +52,22 @@ function App() {
 
   useEffect(() => {
     getCalEventList();
+    setTodaysDate(moment().format('YYYY-MM-DD'))
   }, [])
 
   return (
-    <>
-      <h1 className="title">Calented</h1>
-      <CalEventList calEventList={calEventList} handleUpdateCalEvent={handleUpdateCalEvent} handleDeleteCalEvent={handleDeleteCalEvent}/>
-
-
-
+    <div className="columns is-gapless">
+      <div className="column">
+        <CalEventList calEventList={calEventList} handleUpdateCalEvent={handleUpdateCalEvent} handleDeleteCalEvent={handleDeleteCalEvent}/>
+      </div>
       
+
+
+
+
       <section className="section">
         <div className="container">
-          <h1 className="title">
+          <h1 className="title is-one-quarter">
             Hello World
           </h1>
           <p className="subtitle">
@@ -69,7 +75,7 @@ function App() {
           </p>
         </div>
       </section>
-    </>
+    </div>
   );
 }
 
