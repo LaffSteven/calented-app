@@ -60,21 +60,21 @@ function App() {
       <div className="column">
         <CalEventList calEventList={calEventList} handleUpdateCalEvent={handleUpdateCalEvent} handleDeleteCalEvent={handleDeleteCalEvent}/>
       </div>
-      
 
+      <div className="column">
+        <section className="section">
+          <div className="container">
+            <h1 className="title is-one-quarter">
+              Hello World
+            </h1>
+            <p className="subtitle">
+              My first website with <strong>Bulma</strong>!
+            </p>
+          </div>
+        </section>
+      </div>
 
-
-
-      <section className="section">
-        <div className="container">
-          <h1 className="title is-one-quarter">
-            Hello World
-          </h1>
-          <p className="subtitle">
-            My first website with <strong>Bulma</strong>!
-          </p>
-        </div>
-      </section>
+      <div className="column"></div>
     </div>
   );
 }
