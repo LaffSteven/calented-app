@@ -9,12 +9,12 @@ const CalEvent = (props) => {
 	const [editTabActive, setEditTabActive] = useState("")
 
 	const handleDetailsTab = () => {
-		setCurrentTab('details')
+		currentTab !== "details" ? setCurrentTab("details") : hideTab()
 		setDetailsTabActive("is-active")
 		setEditTabActive("")
 	}
 	const handleEditTab = () => {
-		setCurrentTab('edit')
+		currentTab !== "edit" ? setCurrentTab("edit") : hideTab()
 		setEditTabActive("is-active")
 		setDetailsTabActive("")
 	}
@@ -23,6 +23,8 @@ const CalEvent = (props) => {
 		setCurrentTab("hidden")
 		setDetailsTabActive("")
 	}
+
+	
 
 	return (
 	<div className="card">
