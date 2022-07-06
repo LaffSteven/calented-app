@@ -11,6 +11,7 @@ const CalEventList = (props) => {
 			return (
 				<li key={calEvent.id}>
 					<CalEvent calEvent={calEvent} handleUpdateCalEvent={props.handleUpdateCalEvent} handleDeleteCalEvent={props.handleDeleteCalEvent}/>
+					<br />
 				</li>
 			)
 		})}

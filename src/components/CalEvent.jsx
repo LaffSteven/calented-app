@@ -4,7 +4,25 @@ import EditCalEventForm from './EditCalEventForm'
 const CalEvent = (props) => {
 
 	const [expandCard, setExpandCard] = useState(false)
-	const [curentTab, setCurrentTab] = useState('details')
+	const [currentTab, setCurrentTab] = useState("hidden")
+	const [detailsTabActive, setDetailsTabActive] = useState("")
+	const [editTabActive, setEditTabActive] = useState("")
+
+	const handleDetailsTab = () => {
+		setCurrentTab('details')
+		setDetailsTabActive("is-active")
+		setEditTabActive("")
+	}
+	const handleEditTab = () => {
+		setCurrentTab('edit')
+		setEditTabActive("is-active")
+		setDetailsTabActive("")
+	}
+
+	const hideTab = () => {
+		setCurrentTab("hidden")
+		setDetailsTabActive("")
+	}
 
 	return (
 	<div className="card">
@@ -19,14 +37,14 @@ const CalEvent = (props) => {
 			</button>
 			<div className="tabs">
 				<ul>
-					<li className="is-active">
+					<li className={detailsTabActive} onClick={handleDetailsTab}>
 						<a>
 							<span><i className="fas fa-image" aria-hidden="true"></i></span>
 							<span>Details</span>
 						</a>
 						
 					</li>
-					<li>
+					<li className={editTabActive} onClick={handleEditTab}>
 						<a>
 							<span><i className="fas fa-music" aria-hidden="true"></i></span>
 							<span>Edit</span>
@@ -35,17 +53,30 @@ const CalEvent = (props) => {
 				</ul>
 			</div>
 		</header>
-		<div className="card-content">
 
-			<div className="content box">
-				<p>{props.calEvent.date}</p>
-				<p>{props.calEvent.time}</p>
-				<p>{props.calEvent.description}</p>
+		{currentTab !== "hidden" ?
+			<div className="card-content">
+			{currentTab == "details" ? 
+				<div className="content box">
+					<p>{props.calEvent.date}</p>
+					<p>{props.calEvent.time}</p>
+					<p>{props.calEvent.description}</p>
+					<button className='button is-info is-light' onClick={hideTab}>close</button>
+				</div>
+				:
+				null
+			}
+			{currentTab == "edit" ? 
+				<div className='content box'>
+				<EditCalEventForm calEvent={props.calEvent} handleUpdateCalEvent={props.handleUpdateCalEvent} handleDeleteCalEvent={props.handleDeleteCalEvent} cancelEditing={hideTab}/>
+				</div>
+				:
+				null
+			}
 			</div>
-		</div>
-		<footer className="card-footer">
-			<EditCalEventForm calEvent={props.calEvent} handleUpdateCalEvent={props.handleUpdateCalEvent} handleDeleteCalEvent={props.handleDeleteCalEvent}/>
-		</footer>
+			:
+			null
+		}
 	</div>
 	)
 }

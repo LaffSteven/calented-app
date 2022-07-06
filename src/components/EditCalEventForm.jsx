@@ -22,13 +22,13 @@ const EditCalEventForm = (props) => {
 	return(
 		<form onSubmit={handleSubmit}>
 			<div className='columns is-gapless'>
-				<div className='column is-one-third'>
+				<div className='column'>
 					<label htmlFor="title">Title: </label> <br />
 					<label htmlFor="date">Date: </label> <br />
 					<label htmlFor="time">Time: </label> <br />
 					<label htmlFor="description">Description: </label> <br />
 				</div>
-				<div className='column is-one-half'>
+				<div className='column is-two-thirds'>
 					<input name='title' type="text" value={updatedCalEvent.title} onChange={handleChange} /> <br />
 					<input name='date' type="date" value={updatedCalEvent.date} onChange={handleChange} /> <br />
 					<input name='time' type="time" value={updatedCalEvent.time} onChange={handleChange} /> <br />
@@ -37,9 +37,11 @@ const EditCalEventForm = (props) => {
 			</div>
 			<div className='columns'>
 				<div className='column is-one-third'>
-					<input type="submit" className='button' value="Save Changes" />
+					<input type="submit" className='button is-success is-light' value="Save" />
 				</div>
-				<div className='column'></div>
+				<div className='column is-one-third'>
+					<button className='button is-warning' onClick={props.cancelEditing}>Cancel</button>
+				</div>
 				<div className='column is-one-third'>
 					<button className='button is-danger' onClick={handleDelete}>DELETE</button>
 				</div>

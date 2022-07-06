@@ -59,7 +59,7 @@ function App() {
   }, [])
 
   return (
-    <div className="columns is-gapless">
+    <div className="columns">
       <div className="column box">
         <h2 className="title">Calented</h2>
         <h2>Today is: {todayDate}</h2>
