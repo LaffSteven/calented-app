@@ -31,7 +31,7 @@ const CalEvent = (props) => {
 	<div className="card">
 		<header className="card-header">
 			<p className="card-header-title">
-				{props.calEvent.time} | {props.calEvent.title}
+				{moment(props.calEvent.date).format('l')} | {props.calEvent.title}
 			</p>
 			<button className="card-header-icon" aria-label="more options" onClick={() => setExpandCard(!expandCard)}>
 				<span className="icon">
