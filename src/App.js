@@ -61,30 +61,34 @@ function App() {
   }, [])
 
   return (
-    <div className="tile is-ancestor">
-      <div className="tile is-parent is-info is light">
-        <article className='tile is-child notification is-success'>
-          <div className='content'>
-            <div className='box has-text-centered has-background-primary-light'>
-              <h1 className="title">Calented</h1>
-              <div className='box has-background-info-light'>
-                <h2 className='subtitle'>{moment().format('dddd')}</h2>
-                <h2 className='subtitle'>{moment().format(' MMM Do YYYY')}</h2>
+    <section className='section'>
+      <div className="tile is-ancestor">
+        <div className="tile is-parent is-info is-light">
+          <article className='tile is-child notification is-success'>
+            <div className='content'>
+              <div className='box has-text-centered has-background-primary-light'>
+                <h1 className="title">Calented</h1>
+                <div className='box has-background-info-light'>
+                  <h2 className='subtitle'>{moment().format('dddd')}</h2>
+                  <h2 className='subtitle'>{moment().format(' MMM Do YYYY')}</h2>
+                </div>
               </div>
+              
+              <DateSelector setSelectedDate={setSelectedDate} selectedDate={selectedDate}/>
             </div>
-            
-            <DateSelector setSelectedDate={setSelectedDate} selectedDate={selectedDate}/>
-          </div>
-        </article>
-        
-        <div className='box'>
-          <NewCalEventForm handleCreateCalEvent={handleCreateCalEvent} todayDate={todayDate}/>
+          </article>
         </div>
+        <div className='tile is-parent is-info is-light'>
+          <div className="tile is-child notification">
+            <div className='content'>
+              <CalEventList selectedDate={selectedDate} calEventList={calEventList} handleUpdateCalEvent={handleUpdateCalEvent} handleDeleteCalEvent={handleDeleteCalEvent} handleCreateCalEvent={handleCreateCalEvent}/>
+            </div>
+          </div>
+        </div>
+        
       </div>
-      <div className="column">
-        <CalEventList selectedDate={selectedDate} calEventList={calEventList} handleUpdateCalEvent={handleUpdateCalEvent} handleDeleteCalEvent={handleDeleteCalEvent}/>
-      </div>
-    </div>
+    </section>
+    
   );
 }
 

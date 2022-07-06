@@ -58,7 +58,7 @@ const CalEvent = (props) => {
 
 		{currentTab !== "hidden" ?
 			<div className="card-content">
-			{currentTab == "details" ? 
+			{currentTab === "details" ? 
 				<div className="content box">
 					<p>{props.calEvent.date}</p>
 					<p>{props.calEvent.time}</p>
@@ -68,7 +68,7 @@ const CalEvent = (props) => {
 				:
 				null
 			}
-			{currentTab == "edit" ? 
+			{currentTab === "edit" ? 
 				<div className='content box'>
 				<EditCalEventForm calEvent={props.calEvent} handleUpdateCalEvent={props.handleUpdateCalEvent} handleDeleteCalEvent={props.handleDeleteCalEvent} cancelEditing={hideTab}/>
 				</div>
