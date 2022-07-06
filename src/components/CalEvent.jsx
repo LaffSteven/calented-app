@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import moment from 'moment'
 import EditCalEventForm from './EditCalEventForm'
 
 const CalEvent = (props) => {
@@ -59,10 +60,10 @@ const CalEvent = (props) => {
 		{currentTab !== "hidden" ?
 			<div className="card-content">
 			{currentTab === "details" ? 
-				<div className="content box">
-					<p>{props.calEvent.date}</p>
+				<div className="content box has-background-warning-light is-size-5">
+					<p>{moment(props.calEvent.date).format('MMMM Do YYYY')}</p>
 					<p>{props.calEvent.time}</p>
-					<p>{props.calEvent.description}</p>
+					<p className='box is-shadowless'>{props.calEvent.description}</p>
 					<button className='button is-info is-light' onClick={hideTab}>close</button>
 				</div>
 				:

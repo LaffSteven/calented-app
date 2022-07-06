@@ -23,8 +23,7 @@ const NewCalEventForm = (props) => {
 	}
 
 	return (
-		<details>
-			<summary className='subtitle'>Create New Event</summary>
+		<div className='box has-background-primary-light'>
 			<form onSubmit={handleSubmit}>
 				<div className="field">
 					<label htmlFor='title' className="label">Title</label>
@@ -57,7 +56,7 @@ const NewCalEventForm = (props) => {
 					</div>
 				</div>
 			</form>
-		</details>
+		</div>
 	)
 }
 

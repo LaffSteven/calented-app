@@ -11,21 +11,21 @@ const CalEventList = (props) => {
 
 	const handleSelectedDateTab = () => {
 		setCurrentTab("selected-date")
-		setSelectedDateTabActive("is-active")
-		setAlleventsTabActive("")
-		setNewEventTabActive("")
+		setSelectedDateTabActive("is-active is-clickable")
+		setAlleventsTabActive("is-clickable")
+		setNewEventTabActive("is-clickable")
 	}
 	const handleAllEventsTab = () => {
 		setCurrentTab("all-events")
 		setAlleventsTabActive("is-active")
-		setSelectedDateTabActive("")
-		setNewEventTabActive("")
+		setSelectedDateTabActive("is-clickable")
+		setNewEventTabActive("is-clickable")
 	}
 	const handleNewEventTab = () => {
 		setCurrentTab("new-event")
 		setNewEventTabActive('is-active')
-		setAlleventsTabActive("")
-		setSelectedDateTabActive("")
+		setAlleventsTabActive("is-clickable")
+		setSelectedDateTabActive("is-clickable")
 	}
 
 	const renderSelectEvents = () => {
@@ -65,7 +65,7 @@ const CalEventList = (props) => {
 
 	return (
 	<div>
-		<div className='tabs'>
+		<div className='tabs is-large'>
 			<ul>
 				<li className={selectedDateTabActive} onClick={handleSelectedDateTab}>
 					<a>
@@ -75,7 +75,7 @@ const CalEventList = (props) => {
 				</li>
 				<li className={allEventsTabActive} onClick={handleAllEventsTab}>
 					<a>
-						<span><i className="fas fa-image" aria-hidden="true"></i></span>
+						<span><i className="fas fa-image has-text-dark" aria-hidden="true"></i></span>
 						<span>All Events</span>
 					</a>
 				</li>

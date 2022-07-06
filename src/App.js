@@ -61,31 +61,29 @@ function App() {
   }, [])
 
   return (
-    <section className='section'>
+    <section className='section is-family-monospace'>
       <div className="tile is-ancestor">
         <div className="tile is-parent is-info is-light">
           <article className='tile is-child notification is-success'>
             <div className='content'>
               <div className='box has-text-centered has-background-primary-light'>
-                <h1 className="title">Calented</h1>
-                <div className='box has-background-info-light'>
+                <h1 className="title is-family-monospace is-size-1">Calented</h1>
+                <div className='box has-background-info'>
                   <h2 className='subtitle'>{moment().format('dddd')}</h2>
                   <h2 className='subtitle'>{moment().format(' MMM Do YYYY')}</h2>
                 </div>
               </div>
-              
               <DateSelector setSelectedDate={setSelectedDate} selectedDate={selectedDate}/>
             </div>
           </article>
         </div>
         <div className='tile is-parent is-info is-light'>
-          <div className="tile is-child notification">
+          <article className="tile is-child notification is-success">
             <div className='content'>
               <CalEventList selectedDate={selectedDate} calEventList={calEventList} handleUpdateCalEvent={handleUpdateCalEvent} handleDeleteCalEvent={handleDeleteCalEvent} handleCreateCalEvent={handleCreateCalEvent}/>
             </div>
-          </div>
+          </article>
         </div>
-        
       </div>
     </section>
     
