@@ -10,7 +10,7 @@ const CalEventList = (props) => {
 		{props.calEventList.map((calEvent) => {
 			return (
 				<li key={calEvent.id}>
-					<CalEvent calEvent={calEvent} />
+					<CalEvent calEvent={calEvent} handleUpdateCalEvent={props.handleUpdateCalEvent} handleDeleteCalEvent={props.handleDeleteCalEvent}/>
 				</li>
 			)
 		})}
