@@ -10,6 +10,7 @@ import './Bulma.css' // https://bulma.io/
 ////  IMPORT COMPONENTS                      IMPORT COMPONENTS  ////
 import CalEventList from './components/CalEventList';
 import NewCalEventForm from './components/NewCalEventForm';
+import DateSelector from './components/DateSelector';
 
 
 function App() {
@@ -63,6 +64,7 @@ function App() {
       <div className="column box">
         <h2 className="title">Calented</h2>
         <h2>Today is: {todayDate}</h2>
+        <DateSelector />
         <div className='box'>
           <NewCalEventForm handleCreateCalEvent={handleCreateCalEvent} todayDate={todayDate}/>
         </div>
