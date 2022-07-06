@@ -10,7 +10,7 @@ const EditCalEventForm = (props) => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault()
-
+		props.handleUpdateCalEvent(updatedCalEvent)
 	}
 
 	const handleDelete = (event) => {
