@@ -31,7 +31,7 @@ const CalEvent = (props) => {
 	<div className="card">
 		<header className="card-header">
 			<p className="card-header-title">
-				{props.calEvent.title}
+				{moment(props.calEvent.date).format('l')} | {props.calEvent.title}
 			</p>
 			<button className="card-header-icon" aria-label="more options" onClick={() => setExpandCard(!expandCard)}>
 				<span className="icon">
@@ -45,7 +45,6 @@ const CalEvent = (props) => {
 							<span><i className="fas fa-image" aria-hidden="true"></i></span>
 							<span>Details</span>
 						</a>
-						
 					</li>
 					<li className={editTabActive} onClick={handleEditTab}>
 						<a>
